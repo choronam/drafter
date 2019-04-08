@@ -7,7 +7,7 @@ set(CTEST_BINARY_DIRECTORY "build")
 
 set(CTEST_CMAKE_GENERATOR "Unix Makefiles")
 set(CTEST_MEMORYCHECK_TYPE AddressSanitizer)
-set(CTEST_MEMORYCHECK_SANITIZER_OPTIONS "print_stacktrace=1:halt_on_error=1")
+set(CTEST_MEMORYCHECK_SANITIZER_OPTIONS "print_stacktrace=1:halt_on_error=1:detect_leaks=1")
 
 set(CTEST_USE_LAUNCHERS 1)
 
