@@ -116,7 +116,12 @@ target_include_directories(drafter PUBLIC
     $<INSTALL_INTERFACE:>
     )
 
-target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER=1)
+if(BUILD_SHARED_LIBS)
+    target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER=1 DRAFTER_BUILD_SHARED=1)
+else()
+    target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER=1)
+endif()
+
 target_compile_features(drafter PUBLIC ${DRAFTER_COMPILE_FEATURES})
 
 # drafter-cli
