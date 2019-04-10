@@ -205,15 +205,16 @@ namespace drafter
 
             public:
                 template <typename ItT>
-                constexpr input_iterator(ItT&& first, ItT&& last) noexcept //
-                    : e_(std::forward<ItT>(last)),
-                      cp_and_next_(decode_one(first, last))
+                constexpr input_iterator(ItT&& b, ItT&& e) noexcept //
+                    : e_(std::forward<ItT>(e)),
+                      cp_and_next_(decode_one(b, e))
                 {
                 }
 
                 template <typename Container>
-                explicit constexpr input_iterator(const Container& last) noexcept //
-                    : input_iterator(last.begin(), last.end())
+                explicit constexpr input_iterator(const Container& c) noexcept //
+                    : e_(c.end()),
+                      cp_and_next_(decode_one(c.begin(), c.end()))
                 {
                 }
 
