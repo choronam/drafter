@@ -117,9 +117,9 @@ target_include_directories(drafter PUBLIC
     )
 
 if(BUILD_SHARED_LIBS)
-    target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER=1 DRAFTER_BUILD_SHARED=1)
+    target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER DRAFTER_BUILD_SHARED)
 else()
-    target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER=1)
+    target_compile_definitions(drafter PRIVATE BUILDING_DRAFTER)
 endif()
 
 target_compile_features(drafter PUBLIC ${DRAFTER_COMPILE_FEATURES})
